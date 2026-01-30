@@ -85,19 +85,32 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 80vh;
-            background-color: #f4f4f4;
+            background-color: #1a1a1a; /* Fallback color */
             display: flex; align-items: center; justify-content: center; text-align: center;
             position: relative;
-            background-image: url('hero-bg.jpg'); 
-            background-size: cover; background-position: center;
+            /* Εδώ χρησιμοποιούμε τη νέα εικόνα hero-bg.jpg */
+            background-image: url('hero.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            color: #fff; /* Λευκό κείμενο για να διαβάζεται */
         }
+
+        /* Το σκούρο overlay (μάσκα) */
         .hero::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255,255,255,0.75);
+            background: rgba(0, 0, 0, 0.6); /* 60% μαύρη διαφάνεια */
         }
+
         .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: #000; }
-        .hero p { font-size: 1.3rem; color: #222; font-family: var(--font-serif); font-style: italic; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; color: #fff; } /* Λευκός τίτλος */
+        .hero p { font-size: 1.3rem; color: #eee; font-family: var(--font-serif); font-style: italic; }
+        
+        /* Αλλαγή των κουμπιών στο hero για να ταιριάζουν σε σκούρο φόντο */
+        .hero .btn { border-color: #fff; color: #fff; }
+        .hero .btn:hover { background: #fff; color: #000; }
+        .hero .btn-primary { background: #fff; color: #000; }
+        .hero .btn-primary:hover { background: transparent; color: #fff; }
+
 
         /* --- SYMBOLISM SECTION --- */
         .symbolism { padding: 80px 0; background-color: #fff; }
@@ -119,17 +132,21 @@
         .services { padding: 80px 0; background-color: var(--gray-light); }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-        .product-card { background: #fff; transition: transform 0.3s ease; }
+        .product-card { background: #fff; transition: transform 0.3s ease; border: 1px solid #eee; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
         .product-img {
-            width: 100%; height: 300px; object-fit: cover;
-            background-color: #eee;
+            width: 100%; 
+            height: 300px; 
+            object-fit: contain;
+            background-color: #fff;
+            padding: 15px;
         }
-        .product-info { padding: 20px; text-align: center; }
+        .product-info { padding: 20px; text-align: center; border-top: 1px solid #f4f4f4; }
         .product-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
         .product-info p { font-size: 0.9rem; color: #666; margin: 0; }
 
@@ -238,50 +255,77 @@
             <p style="text-align: center;">Δείγματα από τις δημιουργίες μας για κάθε περίσταση.</p>
             
             <div class="gallery-grid">
+                
                 <div class="product-card">
-                    <img src="Screenshot 2025-09-08 135551.jpg" alt="Συσκευασία Σακουλάκι" class="product-img">
-                    <div class="product-info">
-                        <h3>Συσκευασία Σακουλάκι</h3>
-                        <p>Κλασική Επιλογή</p>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="thrologou food cup.jpg" alt="Ατομικό Κυπελάκι" class="product-img">
+                    <img src="kipelaki.jpg" alt="Ατομικό Κυπελάκι Κόλλυβα" class="product-img">
                     <div class="product-info">
                         <h3>Ατομικό Κυπελάκι</h3>
-                        <p>Εύκολη Διανομή</p>
+                        <p>Έτοιμο προς διανομή</p>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="product-3.jpg" alt="Προϊόν 3" class="product-img">
-                    <div class="product-info"><h3>Δίσκος Μνημοσύνου</h3></div>
+                    <img src="set.jpg" alt="Σετ Μνημοσύνου" class="product-img">
+                    <div class="product-info">
+                        <h3>Σετ Μνημοσύνου</h3>
+                        <p>Νάμα, Κεριά & Θυμίαμα</p>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="product-4.jpg" alt="Προϊόν 4" class="product-img">
-                    <div class="product-info"><h3>Ειδική Παραγγελία</h3></div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="product-5.jpg" alt="Προϊόν 5" class="product-img">
-                    <div class="product-info"><h3>Λεπτομέρεια Διακόσμησης</h3></div>
+                    <img src="amigdalo.jpg" alt="Τσουρέκι με Αμύγδαλο" class="product-img">
+                    <div class="product-info">
+                        <h3>Τσουρέκι</h3>
+                        <p>Με φιλέ αμυγδάλου</p>
+                    </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="product-6.jpg" alt="Προϊόν 6" class="product-img">
-                    <div class="product-info"><h3>Συσκευασία Δώρου</h3></div>
+                    <img src="stafida_2.jpg" alt="Σταφιδόψωμο" class="product-img">
+                    <div class="product-info">
+                        <h3>Σταφιδόψωμο</h3>
+                        <p>Παραδοσιακό</p>
+                    </div>
                 </div>
-                
+
+                <div class="product-card">
+                    <img src="keik_2.jpg" alt="Κέικ Βανίλιας" class="product-img">
+                    <div class="product-info">
+                        <h3>Κέικ</h3>
+                        <p>Ατομική συσκευασία</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="portokali.jpg" alt="Κουλουράκια Πορτοκαλιού" class="product-img">
+                    <div class="product-info">
+                        <h3>Κουλουράκια</h3>
+                        <p>Χειροποίητα Πορτοκαλιού</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="marbre.jpg" alt="Παξιμαδάκια Μαρμπρέ" class="product-img">
+                    <div class="product-info">
+                        <h3>Παξιμαδάκια Δίχρωμα</h3>
+                        <p>Βανίλια & Σοκολάτα</p>
+                    </div>
+                </div>
+
                  <div class="product-card">
-                    <img src="product-7.jpg" alt="Προϊόν 7" class="product-img">
-                    <div class="product-info"><h3>Παραδοσιακός Δίσκος</h3></div>
+                    <img src="glikaniso.jpg" alt="Παξιμαδάκια Γλυκάνισου" class="product-img">
+                    <div class="product-info">
+                        <h3>Παξιμαδάκια</h3>
+                        <p>Τραγανά με γλυκάνισο</p>
+                    </div>
                 </div>
 
                  <div class="product-card">
-                    <img src="product-8.jpg" alt="Προϊόν 8" class="product-img">
-                    <div class="product-info"><h3>Τσουρεκάκια / Συνοδευτικά</h3></div>
+                    <img src="cookies.jpg" alt="Cookies Σοκολάτας" class="product-img">
+                    <div class="product-info">
+                        <h3>Cookies</h3>
+                        <p>Με κομματάκια σοκολάτας</p>
+                    </div>
                 </div>
             </div>
         </div>
