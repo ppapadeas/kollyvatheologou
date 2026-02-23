@@ -150,22 +150,64 @@
         .product-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
         .product-info p { font-size: 0.9rem; color: #666; margin: 0; }
 
-        .product-card.accent-orange { border-left: 4px solid #d4853b; }
+        /* --- INFO BAR (hours) --- */
+        .info-bar {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: var(--font-main);
+            font-weight: 400;
+        }
+        .info-bar strong { font-weight: 500; }
 
+        /* --- CAKE ORANGE ACCENT --- */
+        .product-card.accent-orange {
+            border-left: 5px solid #d4853b;
+            position: relative;
+        }
+        .product-card.accent-orange .product-info {
+            border-top: 2px solid #d4853b;
+        }
+        .product-card.accent-orange .product-info h3 {
+            color: #b06a28;
+        }
+
+        /* --- ORDERS BANNER --- */
         .orders-banner {
             text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            background: #fff;
-            border: 1px solid #eee;
-            border-top: 3px solid #000;
+            margin-top: 60px;
+            padding: 40px 30px;
+            background: #111;
+            color: #fff;
+            position: relative;
+        }
+        .orders-banner::before {
+            content: '\2726';
+            display: block;
+            font-size: 1.4rem;
+            color: #777;
+            margin-bottom: 15px;
         }
         .orders-banner p {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            letter-spacing: 1px;
-            margin: 0;
+            letter-spacing: 1.5px;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+        .orders-banner .btn {
+            border-color: #fff;
+            color: #fff;
+            font-size: 0.8rem;
+        }
+        .orders-banner .btn:hover {
+            background: #fff;
+            color: #111;
         }
 
         /* --- CONTACT --- */
@@ -209,6 +251,10 @@
             <a href="#contact" class="btn btn-primary">Καλεστε μας</a>
         </div>
     </section>
+
+    <div class="info-bar">
+        Ωράριο Λειτουργίας &nbsp;&bull;&nbsp; <strong>Δευτέρα - Σάββατο: 8.30 - 2μμ</strong> &nbsp;&bull;&nbsp; Μαυρομιχάλη 24, Καλαμάτα
+    </div>
 
     <section id="symbolism" class="symbolism">
         <div class="container">
@@ -381,6 +427,7 @@
 
             <div class="orders-banner">
                 <p>Δεχόμαστε παραγγελίες για μνημόσυνα και ψυχοσάββατα</p>
+                <a href="tel:+302721303029" class="btn">Καλέστε μας: 2721 303 029</a>
             </div>
         </div>
     </section>
